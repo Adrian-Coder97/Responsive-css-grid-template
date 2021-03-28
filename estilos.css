@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    color: black;
+    background: #E9ECF4;
+    font-family: 'Roboto', sans-serif;
+}
+
+.contenedor{
+    width: 90%;
+    margin: 20px auto;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, auto);
+}
+
+.contenedor div,
+.contenedor header,
+.contenedor aside,
+.contenedor footer,
+.contenedor .contenido{
+    background: white;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.contenedor header{
+    background: #12203e;
+    color: white;
+    grid-column-start: 1;/*header inicia en col1*/
+    grid-column-end: 4;/*header termina en col4*/
+
+
+    /*TAMBIEN PUEDE SER ASI: 
+    grid-column: 1/-1;*/
+}
+
+.contenedor .contenido{
+    grid-column: span 2;/*contenido ocupa 2 columnas de ancho*/
+}
+
+.contenedor aside{
+    min-height: 100px;/*altura minima del sidebar en resoluciones mas pequeñas*/
+    grid-column: 3/4;
+    background: #faa43d;
+    text-align: center;
+    /*centrar el texto de sidebar:*/
+    display: grid;
+    align-content: center;
+    
+    /*metodo 2 para centrar el texto en el sidebar con flex*/
+    /*display: flex;
+    align-items: center;
+    justify-content: center;*/
+
+    grid-row: span 2;/*para que el sidebar ocupe 2 filas tambien se puede usar grid-row(2/3);*/
+}
+
+.contenedor div{
+    background: #55a8fd;
+    color: white;
+    height: 100px;
+    text-align: center;/*centrar texto horizontal*/
+
+    /*centrar texto vertical*/
+    display: grid;
+    align-content: center;
+}
+
+.contenedor footer{
+    background: #12203e;
+    color: white;
+    grid-column: span 3;
+}
+
+
+@media (max-width: 768px){
+    .contenedor .contenido{
+        grid-column: span 3;
+    }
+
+    .contenedor aside{
+        grid-column: span 3;
+    }
+
+    .contenedor .widget-1{
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 425px){
+    .contenedor .widget-1{
+        grid-column: span 3;
+    }
+    .contenedor .widget-2{
+        grid-column: span 3;
+    }
+}
